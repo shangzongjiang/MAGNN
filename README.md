@@ -10,14 +10,15 @@ This repo is the official implementation for Multi-Scale Adaptive Graph Neural N
 * PyTorch 1.0.0
 * math, sklearn, numpy
 # 3 Datasets
-To evaluate the performance of MAGNN, we conduct experiments on four public benchmark datasets：Solar-Energy, Traffic, Electricity, and Exchange-Rate.
+To evaluate the performance of MAGNN, we conduct experiments on [four public benchmark datasets](https://github.com/laiguokun/multivariate-time-series-data)：Solar-Energy, Traffic, Electricity, and Exchange-Rate.
 ## 3.1 Solar-Energy
-This dataset is collected by the Los Angeles Metropolitan Transportation Authority and contains the average traffic speed measured by 207 loop detectors on the highways of Los Angeles County between March 2012 and June 2012.
+This dataset contains the collected solar power from the National Renewable Energy Laboratory, which is sampled every 10 minutes from 137 PV plants in Alabama State in 2007.
 ## 3.2 Traffic
-The raw data is in http://pems.dot.ca.gov. This dataset is collected by California Transportation Agencies and contains the average traffic speed measured by 325 sensors in the Bay Area between January 2017 and May 2017.
+This dataset contains the road occupancy rates (between 0 and 1) from the California Department of Transportation, which is hourly aggregated from 862 sensors in San Francisco Bay Area from 2015 to 2016.
 ## 3.3 Electricity
+This dataset contains the electricity consumption from the UCI Machine Learning Repository, which is hourly aggregated from 321 clients from 2012 to 2014.
 ## 3.4 Exchange-Rate
-
+This dataset contains the exchange rates of eight countries, which is sampled daily from 1990 to 2016.
 # 4 Running
 ## 4.1 Install all dependencies listed in prerequisites
 
