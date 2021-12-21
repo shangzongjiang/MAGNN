@@ -45,7 +45,7 @@ Please cite the following paper if you use the code in your work:
 ```
 @Inproceedings{616B,
   title={Multi-Scale Adaptive Graph Neural Network for Multivariate Time Series Forecasting.},
-  author={Donghui Chen, Ling Chen, Zongjiang Shang, et al.},
+  author={Ling Chen, Donghui Chen, Zongjiang Shang, Youdong Zhang, Bo Wen, and Chenghu Yang.},
   booktitle={},
   year={2021}
 }
