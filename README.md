@@ -1,19 +1,23 @@
 # 1 MAGNN
 This repo is the official implementation for Multi-Scale Adaptive Graph Neural Network for Multivariate Time Series Forecasting.
 
-## 1.1 The framework of SNAS4MTF
+## 1.1 The framework of MAGNN
  ![framework](https://user-images.githubusercontent.com/18440709/142983473-f6bb12bd-266a-40ce-9116-00ce9a9f1059.jpg)
 
 # 2 Prerequisites
 
 * Python 3.6.12
-* PyTorch 1.2.0
+* PyTorch 1.0.0
 * math, sklearn, numpy
 # 3 Datasets
-## 3.1 METR-LA
+To evaluate the performance of MAGNN, we conduct experiments on four public benchmark datasets：Solar-Energy, Traffic, Electricity, and Exchange-Rate.
+## 3.1 Solar-Energy
 This dataset is collected by the Los Angeles Metropolitan Transportation Authority and contains the average traffic speed measured by 207 loop detectors on the highways of Los Angeles County between March 2012 and June 2012.
-## 3.2 PEMS-BAY
+## 3.2 Traffic
 The raw data is in http://pems.dot.ca.gov. This dataset is collected by California Transportation Agencies and contains the average traffic speed measured by 325 sensors in the Bay Area between January 2017 and May 2017.
+## 3.3 Electricity
+## 3.4 Exchange-Rate
+
 # 4 Running
 ## 4.1 Install all dependencies listed in prerequisites
 
