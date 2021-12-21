@@ -1,0 +1,25 @@
+authorName: default
+experimentName: exp-MAGNN
+trialConcurrency: 2
+maxExecDuration: 100h
+maxTrialNum: 2
+trainingServicePlatform: local
+# search space file
+searchSpacePath: search_space.json
+useAnnotation: false
+tuner:
+  builtinTunerName: TPE
+  classArgs:
+    #choice: maximize, minimize
+    optimize_mode: minimize
+assessor:
+  #choice: Medianstop, Curvefitting
+  builtinAssessorName: Curvefitting
+  classArgs:
+    epoch_num: 20
+    threshold: 0.9
+
+trial:
+  command: CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-exchange-3.pt --data exchange_rate/exchange_rate.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
+  codeDir: .
+  gpuNum: 2
