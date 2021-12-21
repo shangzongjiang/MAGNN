@@ -2,7 +2,7 @@
 This repo is the official implementation for Multi-Scale Adaptive Graph Neural Network for Multivariate Time Series Forecasting.
 
 ## 1.1 The framework of MAGNN
- ![framework](https://user-images.githubusercontent.com/18440709/142983473-f6bb12bd-266a-40ce-9116-00ce9a9f1059.jpg)
+ ![framework](https://github.com/shangzongjiang/MAGNN/blob/main/fig/2.pdf)
 
 # 2 Prerequisites
 
