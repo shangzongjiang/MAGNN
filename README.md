@@ -24,33 +24,28 @@ This dataset contains the exchange rates of eight countries, which is sampled da
 
 ## 4.2 Download the dataset
 
-## 4.3 Neural Architecture Search
+## 4.3 Hyper-parameters search with NNI
 ```python
-# Neural Architecture Search on PEMS_BAY
- python search.py --config config/PEMS_BAY_para.yaml |& tee logs/search_PEMS_BAY.log
- # Neural Architecture Search on METR_LA
- python search.py --config config/METR_LA_para.yaml |& tee logs/search_METR_LA.log
+# Hyper-parameters search with NNI
+ nnictl create --config config.yml --port 8080
 ```
 ## 4.4 Training
 ```python
-# Train on PEMS_BAY
-python train.py --config config/PEMS_BAY_para.yaml  |& tee logs/train_PEMS_BAY.log
-# Train on METR-LA
-python train.py --config config/METR_LA_para.yaml |& tee logs/train_METR_LA.log
-```
-## 4.5 Evaluating
-```python
-# Evaluate on PEMS_BAY
-python test.py --config config/PEMS_BAY_para.yaml |& tee logs/test_PEMS_BAY.log
-# Evaluate on METR-LA
-python test.py --config config/METR_LA_para.yaml |& tee logs/test_METR_LA.log
+# Train on Solar-Energy
+CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-solar-1.pt --data solar-energy/solar-energy.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
+# Train on Traffic
+CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-traffic-3.pt --data traffic/traffic.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
+# Train on Electricity
+CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-electricity-3.pt --data electricity/electricity.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
+# Train on Exchange-Rate
+CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-exchange-4.pt --data exchange_rate/exchange_rate.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
 ```
 # 5 Citation
 Please cite the following paper if you use the code in your work:
 ```
 @Inproceedings{616B,
-  title={Scale-Aware Neural Architecture Search for Multivariate Time Series Forecasting.},
-  author={Donghui Chen, Ling Chen, Youdong Zhang, et al.},
+  title={Multi-Scale Adaptive Graph Neural Network for Multivariate Time Series Forecasting.},
+  author={Donghui Chen, Ling Chen, Zongjiang Shang, et al.},
   booktitle={},
   year={2021}
 }
