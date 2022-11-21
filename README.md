@@ -2,7 +2,7 @@
 This repo is the official implementation for Multi-Scale Adaptive Graph Neural Network for Multivariate Time Series Forecasting.
 
 ## 1.1 The framework of MAGNN
- ![framework](https://github.com/shangzongjiang/MAGNN/blob/main/fig/2.png)
+ ![framework](https://github.com/shangzongjiang/MAGNN/blob/main/fig/2.pdf)
 
 # 2 Prerequisites
 
@@ -32,21 +32,21 @@ This dataset contains the exchange rates of eight countries, which is sampled da
 ## 4.4 Training
 ```python
 # Train on Solar-Energy
-CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-solar-1.pt --data solar-energy/solar-energy.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
+CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-solar-1.pt --data solar-energy/solar-energy.txt --num_nodes 137 --batch_size 4 --epochs 50 --horizon 3
 # Train on Traffic
-CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-traffic-3.pt --data traffic/traffic.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
+CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-traffic-2.pt --data traffic/traffic.txt --num_nodes 862 --batch_size 4 --epochs 50 --horizon 3
 # Train on Electricity
-CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-electricity-3.pt --data electricity/electricity.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
+CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-electricity-3.pt --data electricity/electricity.txt --num_nodes 321 --batch_size 4 --epochs 50 --horizon 3
 # Train on Exchange-Rate
 CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-exchange-4.pt --data exchange_rate/exchange_rate.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
 ```
 # 5 Citation
 Please cite the following paper if you use the code in your work:
 ```
-@Inproceedings{616B,
-  title={Multi-Scale Adaptive Graph Neural Network for Multivariate Time Series Forecasting.},
-  author={Ling Chen, Donghui Chen, Zongjiang Shang, Youdong Zhang, Bo Wen, and Chenghu Yang.},
-  booktitle={},
-  year={2021}
+@article{chen2022multi,
+  title={Multi-Scale Adaptive Graph Neural Network for Multivariate Time Series Forecasting},
+  author={Chen, Ling and Chen, Donghui and Shang, Zongjiang and Zhang, Youdong and Wen, Bo and Yang, Chenghu},
+  journal={arXiv preprint arXiv:2201.04828},
+  year={2022}
 }
 ```
