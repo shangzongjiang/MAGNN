@@ -58,12 +58,8 @@ class magnn(nn.Module):
             """
             # self.agcrn.append(AGCRN(num_nodes=self.num_nodes, input_dim=conv_channels, hidden_dim=scale_channels, num_layers=1) )
             
-            if self.dynamic_graph:
-                self.gconv1.append(dy_mixprop(conv_channels, gnn_channels, gcn_depth, dropout, propalpha))
-                self.gconv2.append(dy_mixprop(conv_channels, gnn_channels, gcn_depth, dropout, propalpha))
-            else:
-                self.gconv1.append(mixprop(conv_channels, gnn_channels, gcn_depth, dropout, propalpha))
-                self.gconv2.append(mixprop(conv_channels, gnn_channels, gcn_depth, dropout, propalpha))
+            self.gconv1.append(mixprop(conv_channels, gnn_channels, gcn_depth, dropout, propalpha))
+            self.gconv2.append(mixprop(conv_channels, gnn_channels, gcn_depth, dropout, propalpha))
             
             self.scale_convs.append(nn.Conv2d(in_channels=conv_channels,
                                                     out_channels=scale_channels,
@@ -92,10 +88,8 @@ class magnn(nn.Module):
         
         self.scale_set = [1, 0.8, 0.6, 0.5]
 
-        if self.dynamic_graph:
-            adj_matrix = self.gc(self.idx, self.scale_idx, self.scale_set, scale)
-        else:
-            adj_matrix = self.gc(self.idx, self.scale_idx, self.scale_set)
+
+        adj_matrix = self.gc(self.idx, self.scale_idx, self.scale_set)
 
         outputs = self.scale0(F.dropout(input, self.dropout, training=self.training))
 
@@ -109,10 +103,7 @@ class magnn(nn.Module):
             # output = self.agcrn[i](scale[i].permute(0, 3, 2, 1), adj_matrix) # B T N D
             # output = output.permute(0, 3, 2, 1)
             
-            if self.dynamic_graph:
-                output = self.gconv1[i](scale[i], adj_matrix[i])+self.gconv2[i](scale[i], adj_matrix[i].transpose(1,2))
-            else:
-                output = self.gconv1[i](scale[i], adj_matrix[i])+self.gconv2[i](scale[i], adj_matrix[i].transpose(1,0))
+            output = self.gconv1[i](scale[i], adj_matrix[i])+self.gconv2[i](scale[i], adj_matrix[i].transpose(1,0))
             
             
             scale_specific_output = self.scale_convs[i](output)
