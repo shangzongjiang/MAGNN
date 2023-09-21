@@ -146,7 +146,6 @@ parser.add_argument('--tanhalpha',type=float,default=3,help='tanh alpha')
 parser.add_argument('--epochs',type=int,default=1,help='')
 parser.add_argument('--num_split',type=int,default=1,help='number of splits for graphs')
 parser.add_argument('--step_size',type=int,default=100,help='step_size')
-parser.add_argument('--dynamic_graph',type=bool,default=False,help='whether to construct dynamic graph')
 
 
 args = parser.parse_args()
@@ -169,7 +168,7 @@ def main(params):
                   scale_channels=scale_channels, end_channels= args.end_channels, gnn_channels = gnn_channels,
                   seq_length=args.seq_in_len, in_dim=args.in_dim, out_dim=args.seq_out_len,
                   layers=args.layers, propalpha=args.propalpha, tanhalpha=args.tanhalpha,
-                  single_step=True, dynamic_graph=args.dynamic_graph)
+                  single_step=True)
     model = model.to(device)
 
     print(args)
