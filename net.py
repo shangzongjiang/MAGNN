@@ -3,13 +3,12 @@ from layer import *
 import torch
 
 class magnn(nn.Module):
-    def __init__(self, gcn_depth, num_nodes, device, dropout=0.3, subgraph_size=20, node_dim=40, conv_channels=32, gnn_channels=32, scale_channels=16, end_channels=128, seq_length=12, in_dim=1, out_dim=12, layers=3, propalpha=0.05, tanhalpha=3, single_step=True, dynamic_graph=True):
+    def __init__(self, gcn_depth, num_nodes, device, dropout=0.3, subgraph_size=20, node_dim=40, conv_channels=32, gnn_channels=32, scale_channels=16, end_channels=128, seq_length=12, in_dim=1, out_dim=12, layers=3, propalpha=0.05, tanhalpha=3, single_step=True):
         super(magnn, self).__init__()
 
         self.num_nodes = num_nodes
         self.dropout = dropout
 
-        self.dynamic_graph = dynamic_graph
         self.device = device
         self.single_step = single_step
         self.filter_convs = nn.ModuleList()
@@ -24,10 +23,8 @@ class magnn(nn.Module):
         self.seq_length = seq_length
         self.layer_num = layers
 
-        if self.dynamic_graph:
-            self.gc = dy_graph_constructor(num_nodes, subgraph_size, node_dim, device, layers=self.layer_num, c_in=conv_channels, alpha=tanhalpha)
-        else:
-            self.gc = graph_constructor(num_nodes, subgraph_size, node_dim, self.layer_num, device)
+
+        self.gc = graph_constructor(num_nodes, subgraph_size, node_dim, self.layer_num, device)
 
         
         if self.single_step:
