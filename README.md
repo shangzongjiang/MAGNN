@@ -40,13 +40,30 @@ CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-electricity-3.pt --data el
 # Train on Exchange-Rate
 CUDA_LAUNCH_BLOCKING=1 python train.py --save ./model-exchange-4.pt --data exchange_rate/exchange_rate.txt --num_nodes 8 --batch_size 4 --epochs 50 --horizon 3
 ```
-# 5 Citation
+# 5 Concat
+If you have any questions, please feel free to contact zongjiangshang@cs.zju.edu.cn
+
+# 6 Other works
+📝 Our other works are shown as follows：
+
+**Long-range time series forecasting**: Shang Z, Chen L, Wu B, et al. MSHyper: Multi-Scale Hypergraph Transformer for Long-Range Time Series Forecasting. arXiv, 2024: arXiv: 2401.09261. [Code Link](https://github.com/shangzongjiang/MSHyper)
+
+**AutoML related forecasting**: Chen D, Chen L, Shang Z, et al. Scale-aware neural architecture search for multivariate time series forecasting. TKDD, 2024. [Code Link](https://github.com/shangzongjiang/SNAS4MTF)
+
+**Long-range & short-range & ultra-long-range time series forecasting**: Shang Z, Chen L, Wu B, et al. Ada-MSHyper: Adaptive multi-scale hypergraph transformer for time series forecasting. NeurIPS, 2024. [Code Link](https://github.com/shangzongjiang/Ada-MSHyper)
+
+# 7 Citation
 Please cite the following paper if you use the code in your work:
+
 ```
-@article{chen2022multi,
-  title={Multi-Scale Adaptive Graph Neural Network for Multivariate Time Series Forecasting},
-  author={Chen, Ling and Chen, Donghui and Shang, Zongjiang and Zhang, Youdong and Wen, Bo and Yang, Chenghu},
-  journal={arXiv preprint arXiv:2201.04828},
-  year={2022}
+@article{chen2023multi,
+  title={Multi-scale adaptive graph neural network for multivariate time series forecasting},
+  author={Chen, Ling and Chen, Donghui and Shang, Zongjiang and Wu, Binqing and Zheng, Cen and Wen, Bo and Zhang, Wei},
+  journal={IEEE Transactions on Knowledge and Data Engineering},
+  volume={35},
+  number={10},
+  pages={10748--10761},
+  year={2023},
+  publisher={IEEE}
 }
 ```
